@@ -1,0 +1,55 @@
+#notify-me-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 300px;
+  max-width: 50%;
+  z-index: 99999; }
+
+.error {
+  background-color: #ec5840;
+  color: white; }
+
+.info {
+  background-color: #00aff0;
+  color: white; }
+
+.warning {
+  background-color: #ffae00;
+  color: black; }
+
+.notif {
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+  position: relative;
+  opacity: 0.6;
+  /* ANIMATION FOR NOTIFICATIONS */ }
+  .notif .title {
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: underline; }
+  .notif .close {
+    font-size: 20px;
+    line-height: 20px;
+    height: 20px;
+    width: 20px;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer; }
+  .notif .message {
+    font-size: 14px;
+    line-height: 20px; }
+  .notif.ng-enter, .notif.ng-leave {
+    transition: all ease 0.5s; }
+  .notif.ng-leave, .notif.ng-enter.ng-enter-active {
+    opacity: 0.6; }
+  .notif.ng-leave.ng-leave-active, .notif.ng-enter {
+    opacity: 0; }

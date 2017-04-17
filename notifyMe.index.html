@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notifyMe" ng-controller="demoCtrl as vm">
+<head>
+    <meta charset="UTF-8">
+    <title>Notify Me</title>
+    <link rel="stylesheet" href="src/notifyMe.css">
+</head>
+<body>
+
+    <button ng-bind="vm.btnText" ng-click="vm.notifyError()"></button>
+
+    <script src="../demoApp/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../demoApp/bower_components/angular/angular.js"></script>
+    <script src="../demoApp/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="src/notifyMe.js"></script>
+    <script src="src/notifyMe.config.js"></script>
+</body>
+</html>
