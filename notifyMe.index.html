@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Notify Me</title>
-    <link rel="stylesheet" href="src/notifyMe.css">
+    <link rel="stylesheet" href="build/notify-me.css">
 </head>
 <body>
 
     <button ng-bind="vm.btnText" ng-click="vm.notifyError()"></button>
 
-    <script src="../demoApp/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../demoApp/bower_components/angular/angular.js"></script>
-    <script src="../demoApp/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="src/notifyMe.js"></script>
-    <script src="src/notifyMe.config.js"></script>
+    <!--<script src="../demoApp/bower_components/jquery/dist/jquery.min.js"></script>-->
+    <!--<script src="../demoApp/bower_components/angular/angular.js"></script>-->
+    <!--<script src="../demoApp/bower_components/angular-animate/angular-animate.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.min.js"></script>
+
+
+    <script src="build/notifyMe.js"></script>
+    <script type="text/javascript">
+        angular.module('notifyMe')
+        .controller('demoCtrl', ['notifyMe', function(NotifyMeService) {
+            this.btnText = 'Click to see notification.';
+
+            this.notifyError = function() {
+                NotifyMeService.info('Hey bro, new error', 'Welcome');
+            };
+        }])
+    </script>
 </body>
 </html>
