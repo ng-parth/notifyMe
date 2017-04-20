@@ -10,9 +10,9 @@ angular.module('notifyMe')
                 var index = 0;
                 var container;
                 var containerEl;
-                this.error = _error;
-                this.info = _info;
-                this.warning = _warning;
+                this.ofError = _error;
+                this.ofInfo = _info;
+                this.ofWarning = _warning;
                 this.clear = _clear;
 
 
