@@ -42,6 +42,7 @@ gulp build
 2. Include these 2 files in your project after including jquery, angular and angular-animate libraries.
   - Link the CSS file as  `<link href="notify-me.css" rel="stylesheet"/>`
   - Link the JS file as  `<script src="motifyMe.js"></script>`
+  - Inject `notifyMe` while creating your angular app as `angular.module('yourApp', ['notifyMe', 'otherDIs'])`. Now you can use the `notifyMe` service throughout your application by injecting the service in your controllers.
 
 3. use notifyMe apis to display notifications for info, warning or error
 	```js
@@ -68,6 +69,6 @@ The cross on top right corner of notification will dismiss the current notificat
 This is available in all types of notifications.
 
 ### Auto-dismiss/Timeouts
-Only `info` notification are dismissed automatically after 5000ms.
+At present, only `info` notification are dismissed automatically after 5000ms.
 This can be customised by overriding the timeout parameter in config file.
 
