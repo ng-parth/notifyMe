@@ -1,4 +1,5 @@
 node_modules/
+bower_components/
 .idea/
 src/notify-me.css
 notifyMe.bak.css

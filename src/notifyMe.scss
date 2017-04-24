@@ -1,3 +1,10 @@
+// Color Variables:
+$white: #fff;
+$black: #333;
+$info-color:  #00aff0;
+$error-color: #ec5840;
+$warning-color: #ffae00;
+
 #notify-me-container {
     position: fixed;
     top: 0;
@@ -8,16 +15,16 @@
 }
 
 .error {
-    background-color: #ec5840;
-    color: white;
+    background-color: $error-color;
+    color: $white;
 }
 .info {
-    background-color: #00aff0;
-    color: white;
+    background-color: $info-color;
+    color: $white;
 }
 .warning {
-    background-color: #ffae00;
-    color: black;
+    background-color: $warning-color;
+    color: $black;
 }
 
 .notif {

@@ -8,15 +8,15 @@
 
 .error {
   background-color: #ec5840;
-  color: white; }
+  color: #fff; }
 
 .info {
   background-color: #00aff0;
-  color: white; }
+  color: #fff; }
 
 .warning {
   background-color: #ffae00;
-  color: black; }
+  color: #333; }
 
 .notif {
   padding: 8px;

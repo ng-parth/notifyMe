@@ -1,0 +1,27 @@
+{
+  "name": "notify-me",
+  "description": "Module to create beautiful notification using angular js(1.x).",
+  "main": "build/notifyMe.js, build/notify-me.css",
+  "authors": [
+    "Parth Mistry"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Angular",
+    "notification",
+    "notifyMe",
+    "notify-me"
+  ],
+  "homepage": "https://github.com/ng-parth/notifyMe",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "angular": "^1.6.4"
+  }
+}

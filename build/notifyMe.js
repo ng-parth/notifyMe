@@ -2,14 +2,7 @@
  * Created by parth on 15/04/17.
  */
 
-angular.module('notifyMe', ['ngAnimate'])
-    .controller('demoCtrl', ['notifyMe', function(NotifyMeService) {
-        this.btnText = 'Click to see notification.';
-
-        this.notifyError = function() {
-            NotifyMeService.info('Hey bro, new error', 'Welcome');
-        };
-    }]);
+angular.module('notifyMe', ['ngAnimate']);
 /**
  * Created by parth on 15/04/17.
  */
@@ -58,9 +51,9 @@ angular.module('notifyMe')
                 var index = 0;
                 var container;
                 var containerEl;
-                this.error = _error;
-                this.info = _info;
-                this.warning = _warning;
+                this.ofError = _error;
+                this.ofInfo = _info;
+                this.ofWarning = _warning;
                 this.clear = _clear;
 
 
