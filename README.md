@@ -30,7 +30,12 @@ npm install
 At this point the dependencies have been installed for this module.
 - Run the build by `gulp build`
 - Run the test by `gulp test`(TBD)
-
+- Check the docs by running
+```
+gulp buildDocs
+gulp runDocs
+```
+and then open http://localhost:8083 in your browser.
 
 ### Follow 3 Easy Steps to use this module.
 

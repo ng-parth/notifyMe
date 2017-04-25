@@ -35,7 +35,7 @@ gulp.task('test', startTest(true));
 
 gulp.task('test:watch', startTest(false));
 
-gulp.task('ngdocs', [], function () {
+gulp.task('buildDocs', [], function () {
     var options = {
         html5Mode: true,
         startPage: '/api/notifyMe.notifyMe',
@@ -47,7 +47,7 @@ gulp.task('ngdocs', [], function () {
         .pipe(gulp.dest('./docs'));
 });
 
-gulp.task('run:ngdocs', function() {
+gulp.task('runDocs', function() {
     connect.server({
         root: 'docs',
         livereload: false,
