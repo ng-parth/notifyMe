@@ -1,5 +1,10 @@
 /**
- * Created by parth on 17/04/17.
+ * @ngdoc service
+ * @name notifyMe.notifyMe
+ * @description
+ *
+ * This service contains apis to create beautiful notifications.
+ *
  */
 
 angular.module('notifyMe')
@@ -10,9 +15,65 @@ angular.module('notifyMe')
                 var index = 0;
                 var container;
                 var containerEl;
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#ofError
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Method to create ERROR notification.
+                 * @example
+                 * notifyMe.ofError(message, title);
+                 * @param {string} msg Message to be shown in notification
+                 * @param {string} title Title of notification
+                 */
+
                 this.ofError = _error;
+
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#ofInfo
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Method to create INFO notification.
+                 * @example
+                 * notifyMe.ofInfo(message, title);
+                 * @param {string} msg Message to be shown in notification
+                 * @param {string} title Title of notification
+                 */
+
                 this.ofInfo = _info;
+
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#ofWarning
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Method to create WARNING notification.
+                 * @example
+                 * notifyMe.ofWarning(message, title);
+                 * @param {string} msg Message to be shown in notification
+                 * @param {string} title Title of notification
+                 */
+
                 this.ofWarning = _warning;
+
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#clear
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Dismisses or clears notifications.
+                 * If notification object is passed, it dismisses that notification
+                 * else it will clear all notifications.
+                 * @example
+                 * notifyMe.clear([notifObj]);
+                 * @param {notificationObject} notifObj (Optional) Notification object which needs to be cleared.
+                 */
+
                 this.clear = _clear;
 
 
