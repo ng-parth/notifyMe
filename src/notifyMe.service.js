@@ -99,14 +99,19 @@ angular.module('notifyMe')
                 }
                 function _clear(notif) {
                     if (!notif) {
-                        notifications = [];
-                        return;
+                        for (var i = 0; i < notifications.length; i++ ) {
+                            if (notifications[0].type === 'info') {
+                                $timeout.cancel(notifications[0].dismissPromise)
+                            }
+                            notifications.splice(0, notifications.length);
+                            return;
+                        }
                     }
                     var notifIdx = notifications.indexOf(notif);
-                    notifications.splice(notifIdx, 1);
-                    if (notif.type == 'info') {
+                    if (notif.type === 'info') {
                         $timeout.cancel(notif.dismissPromise);
                     }
+                    notifications.splice(notifIdx, 1);
                 }
                 function _getOptions() {
                     return angular.extend({}, notifyMeConfig);
@@ -140,5 +145,6 @@ angular.module('notifyMe')
                         target.append(containerEl)
                     }
                 }
-
-}]);
+            }
+        ]
+    );

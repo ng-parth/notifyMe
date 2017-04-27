@@ -19,12 +19,12 @@
   color: #333; }
 
 .notif {
-  padding: 8px;
+  padding: 10px;
   margin: 8px;
   border-radius: 4px;
-  position: relative;
-  opacity: 0.6;
   /* ANIMATION FOR NOTIFICATIONS */ }
+  .notif:hover {
+    opacity: 0.8; }
   .notif .title {
     font-size: 16px;
     line-height: 20px;
@@ -50,6 +50,6 @@
   .notif.ng-enter, .notif.ng-leave {
     transition: all ease 0.5s; }
   .notif.ng-leave, .notif.ng-enter.ng-enter-active {
-    opacity: 0.6; }
+    opacity: 1; }
   .notif.ng-leave.ng-leave-active, .notif.ng-enter {
     opacity: 0; }

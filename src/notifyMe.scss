@@ -28,11 +28,12 @@ $warning-color: #ffae00;
 }
 
 .notif {
-    padding: 8px;
+    padding: 10px;
     margin: 8px;
     border-radius: 4px;
-    position: relative;
-    opacity: 0.6;
+    &:hover {
+        opacity: 0.8;
+    }
     .title {
         font-size: 16px;
         line-height: 20px;
@@ -69,7 +70,7 @@ $warning-color: #ffae00;
 
     &.ng-leave,
     &.ng-enter.ng-enter-active {
-        opacity: 0.6;
+        opacity: 1;
     }
 
     &.ng-leave.ng-leave-active,

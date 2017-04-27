@@ -4,7 +4,7 @@
 
 angular.module('notifyMe')
     .constant('notifyMeConfig', {
-        timeout: 5000,
+        timeout: 90000,
         closeable: true,
         maxNotif: 5,
         containerId: 'notify-me-container'

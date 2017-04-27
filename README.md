@@ -74,6 +74,6 @@ The cross on top right corner of notification will dismiss the current notificat
 This is available in all types of notifications.
 
 ### Auto-dismiss/Timeouts
-At present, only `info` notification are dismissed automatically after 5000ms.
+At present, only `info` notification are dismissed automatically after 90000ms.
 This can be customised by overriding the timeout parameter in config file.
 

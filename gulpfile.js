@@ -2,6 +2,9 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var concat       = require('gulp-concat');
+var uglify       = require('gulp-uglify');
+var minify       = require('gulp-minify-css');
+var autoPrefixer = require('gulp-autoprefixer');
 var del          = require('del');
 var Server       = require('karma').Server;
 var gulpDocs     = require('gulp-ngdocs');
@@ -10,13 +13,35 @@ var connect      = require('gulp-connect');
 gulp.task('scss', function() {
     return gulp.src('src/notifyMe.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoPrefixer({
+            browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']
+        }))
         .pipe(rename('notify-me.css'))
         .pipe(gulp.dest('build'));
 });
 
+gulp.task('scss:min', function() {
+    return gulp.src('src/notifyMe.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoPrefixer({
+            browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']
+        }))
+        .pipe(rename('notify-me.min.css'))
+        .pipe(minify())
+        .pipe(gulp.dest('build'));
+});
+
+
 gulp.task('scripts', function() {
     return gulp.src(['src/notifyMe.js', 'src/**/*.js'])
         .pipe(concat('notifyMe.js'))
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('scripts:min', function() {
+    return gulp.src(['src/notifyMe.js', 'src/**/*.js'])
+        .pipe(concat('notifyMe.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('build'));
 });
 
