@@ -2,13 +2,9 @@ var gulp         = require('gulp');
 var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var concat       = require('gulp-concat');
-var uglify       = require('gulp-uglify');
-var minify       = require('gulp-minify-css');
+
 var autoPrefixer = require('gulp-autoprefixer');
-var del          = require('del');
-var Server       = require('karma').Server;
-var gulpDocs     = require('gulp-ngdocs');
-var connect      = require('gulp-connect');
+
 
 gulp.task('scss', function() {
     return gulp.src('src/notifyMe.scss')
@@ -21,6 +17,7 @@ gulp.task('scss', function() {
 });
 
 gulp.task('scss:min', function() {
+    var minify = require('gulp-minify-css');
     return gulp.src('src/notifyMe.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoPrefixer({
@@ -39,6 +36,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('scripts:min', function() {
+    var uglify = require('gulp-uglify');
     return gulp.src(['src/notifyMe.js', 'src/**/*.js'])
         .pipe(concat('notifyMe.min.js'))
         .pipe(uglify())
@@ -51,16 +49,19 @@ gulp.task('watch', function() {
 });
 
 gulp.task('clean', function() {
+    var del = require('del');
     del('build');
+    del('docs');
 });
 
-gulp.task('build', ['clean', 'scss', 'scripts']);
+gulp.task('build', ['clean', 'scss', 'scripts', 'buildDocs']);
 
 gulp.task('test', startTest(true));
 
 gulp.task('test:watch', startTest(false));
 
 gulp.task('buildDocs', [], function () {
+    var gulpDocs = require('gulp-ngdocs');
     var options = {
         html5Mode: true,
         startPage: '/api/notifyMe.notifyMe',
@@ -73,6 +74,7 @@ gulp.task('buildDocs', [], function () {
 });
 
 gulp.task('runDocs', function() {
+    var connect = require('gulp-connect');
     connect.server({
         root: 'docs',
         livereload: false,
@@ -82,6 +84,7 @@ gulp.task('runDocs', function() {
 });
 
 function startTest(singleRun) {
+    var Server = require('karma').Server;
     return function (done) {
         new Server({
             configFile: __dirname + '/karma.conf.js',

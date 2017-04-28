@@ -26,55 +26,61 @@ $warning-color: #ffae00;
     background-color: $warning-color;
     color: $black;
 }
-
-.notif {
-    padding: 10px;
-    margin: 8px;
-    border-radius: 4px;
-    &:hover {
-        opacity: 0.8;
-    }
-    .title {
-        font-size: 16px;
-        line-height: 20px;
-        margin-right: 20px;
-        font-weight: bold;
-        text-decoration: underline;
-    }
-
-    .close {
-        font-size: 20px;
-        line-height: 20px;
-        height: 20px;
-        width: 20px;
+.all-notifs {
+    width: 100%;
+    float: right;
+    .notif {
+        padding: 10px;
+        margin: 8px;
+        border-radius: 4px;
+        position: relative;
         float: right;
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
-        cursor: pointer;
-    }
-    .message {
-        font-size: 14px;
-        line-height: 20px;
-    }
+        &:hover {
+            opacity: 0.8;
+        }
+        .title {
+            font-size: 16px;
+            line-height: 20px;
+            margin-right: 20px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .close {
+            font-size: 20px;
+            line-height: 20px;
+            height: 20px;
+            width: 20px;
+            float: right;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+        .message {
+            font-size: 14px;
+            line-height: 20px;
+        }
 
 
-    /* ANIMATION FOR NOTIFICATIONS */
-    &.ng-enter,
-    &.ng-leave {
-        transition:all ease 0.5s;
-    }
+        /* ANIMATION FOR NOTIFICATIONS */
+        &.ng-enter,
+        &.ng-leave {
+            transition:all ease 0.5s;
+        }
 
-    &.ng-leave,
-    &.ng-enter.ng-enter-active {
-        opacity: 1;
-    }
+        &.ng-leave,
+        &.ng-enter.ng-enter-active {
+            opacity: 1;
+        }
 
-    &.ng-leave.ng-leave-active,
-    &.ng-enter {
-        opacity:0;
+        &.ng-leave.ng-leave-active,
+        &.ng-enter {
+            opacity:0;
+        }
     }
 }
+

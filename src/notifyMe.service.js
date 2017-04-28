@@ -77,38 +77,38 @@ angular.module('notifyMe')
                 this.clear = _clear;
 
 
-                function Notification(type, msg, title) {
+                function Notification(type, msg, title, options) {
                     this.type = type;
                     this.message = msg;
                     this.title = title;
                     this.close = _clear.bind(this, this);
+                    this.options = options;
                 }
 
-                function _error(msg, title) {
-                    var notif = new Notification('error', msg, title);
+                function _error(msg, title, options) {
+                    var notif = new Notification('error', msg, title, options);
                     _makeNotification(notif);
                 }
-                function _info(msg, title) {
-                    var notif = new Notification('info', msg, title);
+                function _info(msg, title, options) {
+                    var notif = new Notification('info', msg, title, options);
                     _makeNotification(notif);
-                    notif.dismissPromise = $timeout(notif.close, _getOptions().timeout);
                 }
-                function _warning(msg, title) {
-                    var notif = new Notification('warning', msg, title);
+                function _warning(msg, title, options) {
+                    var notif = new Notification('warning', msg, title, options);
                     _makeNotification(notif);
                 }
                 function _clear(notif) {
                     if (!notif) {
                         for (var i = 0; i < notifications.length; i++ ) {
-                            if (notifications[0].type === 'info') {
+                            if (angular.isDefined(notifications[0].dismissPromise)) {
                                 $timeout.cancel(notifications[0].dismissPromise)
                             }
-                            notifications.splice(0, notifications.length);
-                            return;
                         }
+                        notifications.splice(0, notifications.length);
+                        return;
                     }
                     var notifIdx = notifications.indexOf(notif);
-                    if (notif.type === 'info') {
+                    if (angular.isDefined(notif.dismissPromise)) {
                         $timeout.cancel(notif.dismissPromise);
                     }
                     notifications.splice(notifIdx, 1);
@@ -125,7 +125,14 @@ angular.module('notifyMe')
                     if (!container && !containerEl) {
                         _createContainer();
                     }
+                    notif.options = notif.options || {};
+                    var optionsOverride = angular.extend(_getOptions(), _cleanupOptions(notif.options));
+                    _setNotifOptions(notif, optionsOverride);
+
                     notif.notifId = notif.type + index;
+                    if (notif.autoDismiss) {
+                        notif.dismissPromise = $timeout(notif.close, notif.timeout);
+                    }
                     notifications.push(notif);
                     index++;
                 }
@@ -144,6 +151,22 @@ angular.module('notifyMe')
                     if (container && target) {
                         target.append(containerEl)
                     }
+                }
+
+                function _cleanupOptions(options) {
+                    var excludeOptions = ['containerId', 'maxNotifs', 'type'];
+                    for (var i = 0; i < excludeOptions.length; i++) {
+                        delete options[excludeOptions[i]];
+                    }
+                    return options;
+                }
+
+                function _setNotifOptions(notif, opts) {
+                    delete notif.options;
+                    notif.timeout = opts.timeout;
+                    notif.autoDismiss = angular.isDefined(opts.autoDismiss) ? opts.autoDismiss : opts.type[notif.type].autoDismiss;
+                    notif.closeable = angular.isDefined(opts.closeable) ? opts.closeable : opts.type[notif.type].closeable;
+
                 }
             }
         ]
