@@ -51,7 +51,7 @@ gulp.task('watch', function() {
 gulp.task('clean', function() {
     var del = require('del');
     del('build');
-    del('docs');
+    // del('docs');
 });
 
 gulp.task('build', ['clean', 'scss', 'scripts', 'buildDocs']);

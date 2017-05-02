@@ -17,30 +17,48 @@ else it will clear all notifications.</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_oferror">ofError(msg, title)</h3>
+<li><h3 id="methods_oferror">ofError(msg, title, options)</h3>
 <div class="oferror"><div class="notifyme-notifyme-oferror-page"><p>Method to create ERROR notification.</p>
 </div><h5 id="methods_oferror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>msg</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-oferror-page"><p>Message to be shown in notification</p>
 </div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-oferror-page"><p>Title of notification</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="notifyme-notifyme-oferror-page"><p>Params to customise this notification. Valid options for this parameters are:</p>
+<ul>
+<li><code>autoDismiss</code>: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.</li>
+<li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
+<li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
+</ul>
 </div></td></tr></tbody></table><h4 id="methods_oferror_example">Example</h4>
-<div class="example"><div class="notifyme-notifyme-oferror-page"><p>notifyMe.ofError(message, title);</p>
+<div class="example"><div class="notifyme-notifyme-oferror-page"><p>notifyMe.ofError(message, title, options);</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_ofinfo">ofInfo(msg, title)</h3>
+<li><h3 id="methods_ofinfo">ofInfo(msg, title, options)</h3>
 <div class="ofinfo"><div class="notifyme-notifyme-ofinfo-page"><p>Method to create INFO notification.</p>
 </div><h5 id="methods_ofinfo_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>msg</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-ofinfo-page"><p>Message to be shown in notification</p>
 </div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-ofinfo-page"><p>Title of notification</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="notifyme-notifyme-ofinfo-page"><p>Params to customise this notification. Valid options for this parameters are:</p>
+<ul>
+<li><code>autoDismiss</code>: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.</li>
+<li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
+<li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
+</ul>
 </div></td></tr></tbody></table><h4 id="methods_ofinfo_example">Example</h4>
-<div class="example"><div class="notifyme-notifyme-ofinfo-page"><p>notifyMe.ofInfo(message, title);</p>
+<div class="example"><div class="notifyme-notifyme-ofinfo-page"><p>notifyMe.ofInfo(message, title, options);</p>
 </div></div>
 </div>
 </li>
-<li><h3 id="methods_ofwarning">ofWarning(msg, title)</h3>
+<li><h3 id="methods_ofwarning">ofWarning(msg, title, options)</h3>
 <div class="ofwarning"><div class="notifyme-notifyme-ofwarning-page"><p>Method to create WARNING notification.</p>
 </div><h5 id="methods_ofwarning_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>msg</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-ofwarning-page"><p>Message to be shown in notification</p>
 </div></td></tr><tr><td>title</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-ofwarning-page"><p>Title of notification</p>
+</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="notifyme-notifyme-ofwarning-page"><p>Params to customise this notification. Valid options for this parameters are:</p>
+<ul>
+<li><code>autoDismiss</code>: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.</li>
+<li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
+<li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
+</ul>
 </div></td></tr></tbody></table><h4 id="methods_ofwarning_example">Example</h4>
-<div class="example"><div class="notifyme-notifyme-ofwarning-page"><p>notifyMe.ofWarning(message, title);</p>
+<div class="example"><div class="notifyme-notifyme-ofwarning-page"><p>notifyMe.ofWarning(message, title, options);</p>
 </div></div>
 </div>
 </li>

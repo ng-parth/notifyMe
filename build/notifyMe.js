@@ -87,9 +87,14 @@ angular.module('notifyMe')
                  * @description
                  * Method to create ERROR notification.
                  * @example
-                 * notifyMe.ofError(message, title);
+                 * notifyMe.ofError(message, title, options);
                  * @param {string} msg Message to be shown in notification
                  * @param {string} title Title of notification
+                 * @param {object} options Params to customise this notification. Valid options for this parameters are:
+                 *
+                 *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
+                 *  - `closeable`: Option to make notification closeable: Defaults to true.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
                  */
 
                 this.ofError = _error;
@@ -102,9 +107,14 @@ angular.module('notifyMe')
                  * @description
                  * Method to create INFO notification.
                  * @example
-                 * notifyMe.ofInfo(message, title);
+                 * notifyMe.ofInfo(message, title, options);
                  * @param {string} msg Message to be shown in notification
                  * @param {string} title Title of notification
+                 * @param {object} options Params to customise this notification. Valid options for this parameters are:
+                 *
+                 *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
+                 *  - `closeable`: Option to make notification closeable: Defaults to true.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
                  */
 
                 this.ofInfo = _info;
@@ -117,9 +127,14 @@ angular.module('notifyMe')
                  * @description
                  * Method to create WARNING notification.
                  * @example
-                 * notifyMe.ofWarning(message, title);
+                 * notifyMe.ofWarning(message, title, options);
                  * @param {string} msg Message to be shown in notification
                  * @param {string} title Title of notification
+                 * @param {object} options Params to customise this notification. Valid options for this parameters are:
+                 *
+                 *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
+                 *  - `closeable`: Option to make notification closeable: Defaults to true.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
                  */
 
                 this.ofWarning = _warning;

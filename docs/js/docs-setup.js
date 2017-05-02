@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "notifyMe",
       "shortDescription": "This service contains apis to create beautiful notifications.",
-      "keywords": "api apis beautiful clear cleared clears create dismisses error info message method msg notification notifications notifobj notifyme object oferror ofinfo ofwarning passed service title warning"
+      "keywords": "0ms 90000ms api apis autodismiss automatically beautiful clear cleared clears close closeable create customise default defaults dismiss dismisses error false info instantenously message method ms msg notification notifications notifobj notifyme object oferror ofinfo ofwarning option options parameters params passed service timeout timer title true valid warning"
     }
   ],
   "apis": {
