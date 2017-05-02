@@ -1,9 +1,18 @@
+@media screen and (min-width: 640px) and (max-width: 640px) {
+  #notify-me-container {
+    min-width: 300px;
+    max-width: 50%; }
+  .all-notifs {
+    float: right; }
+    .all-notifs .notif {
+      margin: 8px;
+      float: right; } }
+
 #notify-me-container {
   position: fixed;
   top: 0;
   right: 0;
-  min-width: 300px;
-  max-width: 50%;
+  width: 100%;
   z-index: 99999; }
 
 .error {
@@ -19,14 +28,12 @@
   color: #333; }
 
 .all-notifs {
-  width: 100%;
-  float: right; }
+  width: 100%; }
   .all-notifs .notif {
     padding: 10px;
-    margin: 8px;
+    margin-bottom: 8px;
     border-radius: 4px;
     position: relative;
-    float: right;
     /* ANIMATION FOR NOTIFICATIONS */ }
     .all-notifs .notif:hover {
       opacity: 0.8; }

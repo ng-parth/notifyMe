@@ -1,16 +1,35 @@
-// Color Variables:
+// Color and other Variables:
 $white: #fff;
 $black: #333;
 $info-color:  #00aff0;
 $error-color: #ec5840;
 $warning-color: #ffae00;
+$mobile-min-width: 0px;
+$mobile-max-width: 640px;
+$desktop-min-width: 640px;
 
+// Media query for desktop
+@media screen and (min-width: $desktop-min-width) {
+    #notify-me-container {
+        min-width: 300px;
+        max-width: 50%;
+    }
+    .all-notifs {
+        float: right;
+        .notif {
+            margin: 8px;
+            float: right;
+        }
+    }
+}
+
+
+//Default CSS for mobile-first
 #notify-me-container {
     position: fixed;
     top: 0;
     right: 0;
-    min-width: 300px;
-    max-width: 50%;
+    width: 100%;
     z-index: 99999;
 }
 
@@ -28,13 +47,11 @@ $warning-color: #ffae00;
 }
 .all-notifs {
     width: 100%;
-    float: right;
     .notif {
         padding: 10px;
-        margin: 8px;
+        margin-bottom: 8px;
         border-radius: 4px;
         position: relative;
-        float: right;
         &:hover {
             opacity: 0.8;
         }
