@@ -8,16 +8,16 @@ The notification will appear on top right side of the screen.
 Following are the APIs which you can use in your project after injecting this module in your angular application.
 
 **Info notification:**
-`notifyMe.ofInfo(msg, title);`
+`notifyMe.ofInfo(msg, title, [options(optional)]);`
 
 **Warning notification:**
-`notifyMe.ofWarning(msg, title);`
+`notifyMe.ofWarning(msg, title, [options(optional)]);`
 
 **Error notification:**
-`notifyMe.ofError(msg, title);`
+`notifyMe.ofError(msg, title, [options(optional)]);`
 
 **Clear all notification:**
-`notifyMe.clear();`
+`notifyMe.clear([notifiObject(optional)]);`
 
 ### Building notifyMe
 
@@ -31,11 +31,14 @@ At this point the dependencies have been installed for this module.
 - Run the build by `gulp build`
 - Run the test by `gulp test`(TBD)
 - Check the docs by running
+
+### Accessing docs for notifyMe
+Run
 ```
 gulp buildDocs
 gulp runDocs
 ```
-and then open http://localhost:8083 in your browser.
+and then open http://localhost:8083 in your browser to access the notifyMe docs generated using ngDocs.
 
 ### Follow 3 Easy Steps to use this module.
 
@@ -71,9 +74,9 @@ NotifyMe.clear()
 ### Close Button
 
 The cross on top right corner of notification will dismiss the current notification.
-This is available in all types of notifications.
+This is available in all types of notifications. Customise using `closeable` params in `options` while triggering the notification.
 
 ### Auto-dismiss/Timeouts
 At present, only `info` notification are dismissed automatically after 90000ms.
 This can be customised by overriding the timeout parameter in config file.
-
+This can also be customised using `timeout` and `autoDismiss` params in options while triggering the notifications.'
