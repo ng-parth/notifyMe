@@ -199,12 +199,12 @@ angular.module('notifyMe')
                 };
 
                 function Notification(type, msg, title, options) {
+                    this.notifId = type + index;
                     this.type = type;
                     this.message = msg;
                     this.title = title;
                     this.close = _clear.bind(this, this);
                     this.options = options;
-                    this.notifId = type + index;
                 }
 
                 function _error(msg, title, options) {

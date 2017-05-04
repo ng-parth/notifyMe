@@ -7,17 +7,30 @@ The notification will appear on top right side of the screen.
 ## APIs to consume:
 Following are the APIs which you can use in your project after injecting this module in your angular application.
 
+**Notification class**
+Notification is a class with following properties.
+- `notifId` : Unique id for this notification.
+- `type` : Type of notification
+- `message` : Notification message
+- `title` : Notification title
+- `close` : Close function to dismiss the notification
+- `options` : Notification options
+
 **Info notification:**
 `notifyMe.ofInfo(msg, title, [options(optional)]);`
+returns `notificationObj`
 
 **Warning notification:**
 `notifyMe.ofWarning(msg, title, [options(optional)]);`
+returns `notificationObj`
 
 **Error notification:**
 `notifyMe.ofError(msg, title, [options(optional)]);`
+returns `notificationObj`
 
 **Clear all notification:**
-`notifyMe.clear([notifiObject(optional)]);`
+`notifyMe.clear([notificationObj(optional)]);`
+
 
 ### Building notifyMe
 
