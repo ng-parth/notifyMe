@@ -16,6 +16,13 @@ Notification is a class with following properties.
 - `close` : Close function to dismiss the notification
 - `options` : Notification options
 
+    **options**
+    The options contains key-value pairs for customizing the notification. It can accept only following keys.
+    - `closeable` : boolean | default: true. This option controls weather you want the notification closeable ot not
+    - `autoDismiss` :  boolean | default: false. This option controls weather the notification will be auto-dismissed.
+    - `timeout` : time in ms | default: 90000. This options set the timespan after which the the notification will be auto-dismissed.
+    - *NOTE:* `autoDismiss` and `timeout` both are required to auto-dismiss notification. If `timeout` is set to 0, it will set the delay to infinity, so that notification wont be auto-dismissed.
+
 **Info notification:**
 `notifyMe.ofInfo(msg, title, [options(optional)]);`
 returns `notificationObj`

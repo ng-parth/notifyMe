@@ -152,6 +152,18 @@ describe('notifyMe', function() {
             expect(_$document.find('.notif.error').length).toBe(0);
         });
 
+        it('Notification should not be autodismissed if autodismiss and timeout = 0 options are given.', function() {
+            var options = {autoDismiss: true, timeout: 0};
+            _createNotif('ofError', options);
+            expect(_$document.find('#error0').length).toBe(1);
+            _$timeout.flush(options.timeout);
+            expect(_$document.find('#error0').length).toBe(1);
+            _$timeout.flush(90000);
+            expect(_$document.find('#error0').length).toBe(1);
+            _$timeout.flush(50000);
+            expect(_$document.find('#error0').length).toBe(1);
+        });
+
         it('Notification should not have close button if closeable option is false.', function(){
             var options = {closeable: false};
             var notification = _createNotif('ofWarning', options);
