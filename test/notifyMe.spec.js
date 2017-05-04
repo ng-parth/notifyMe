@@ -25,13 +25,13 @@ describe('notifyMe', function() {
     it('Verify one notification for each notification type.', function() {
         var title = 'This is notif title';
         var message = 'This is notif title';
-        expect(_$document.find('#notify-me-container').length).toBe(0); //Works properly
+        expect(_$document.find('#notify-me-container').length).toBe(0); // Passes
 
         _notifyMeService.ofError(message, title);
-        expect(_$document.find('#notify-me-container').length).toBe(1); // Works properly
+        expect(_$document.find('#notify-me-container').length).toBe(1); // Passes
+        expect(_notifyMeService.getActiveNotifs()).toBe(1);// Passes
 
-        expect(_$document.find('.notif').length).toBe(1); //Fails
-
+        expect(_$document.find('.notif').length).toBe(1); //Fails: says Expected 0 to be 1.
     });
 
     // Other test cases I can think of.
