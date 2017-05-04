@@ -91,6 +91,19 @@ angular.module('notifyMe')
 
                 this.clear = _clear;
 
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#getActiveNotifs
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Get count of currently active notifications.
+                 * @example
+                 * notifyMe.getActiveNotifs();
+                 */
+                this.getActiveNotifs = function() {
+                    return notifications.length;
+                };
 
                 function Notification(type, msg, title, options) {
                     this.type = type;
