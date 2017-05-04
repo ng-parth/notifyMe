@@ -42,7 +42,7 @@ npm install
 ```
 At this point the dependencies have been installed for this module.
 - Run the build by `gulp build`
-- Run the test by `gulp test`(TBD)
+- Run the test by `gulp test`
 - Check the docs by running
 
 ### Accessing docs for notifyMe
@@ -90,4 +90,6 @@ This is available in all types of notifications. Customise using `closeable` par
 ### Auto-dismiss/Timeouts
 At present, only `info` notification are dismissed automatically after 90000ms.
 This can be customised by overriding the timeout parameter in config file.
-This can also be customised using `timeout` and `autoDismiss` params in options while triggering the notifications.'
+This can also be customised using `timeout` and `autoDismiss` params in options while triggering the notifications.
+INFO and ERROR notification can also be made autodismissable by setting `autoDismiss` property to `true` in options while creating notification.
+   *Note:* Setting `timeout` to 0 with `autoDismiss` to `true` will dismiss the notification automatically.

@@ -94,7 +94,7 @@ angular.module('notifyMe')
                  *
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
-                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will not dismiss the notification automatically.
                  *
                  *  @returns {NotificationObject} notification Notification object containing following properties
                  *
@@ -123,7 +123,7 @@ angular.module('notifyMe')
                  *
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
-                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will not dismiss the notification automatically.
                  *
                  * @returns {NotificationObject} notification Notification object containing following properties
                  *
@@ -152,7 +152,7 @@ angular.module('notifyMe')
                  *
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
-                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will not dismiss the notification automatically.
                  *
                  *  @returns {NotificationObject} notification Notification object containing following properties
                  *
