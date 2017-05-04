@@ -70,17 +70,18 @@ gulp build
     // Display an info notification
     notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
     ```
-    ![alt text](https://github.com/ng-parth/notifyMe/raw/screenShot/img/notifyMe.ofInfo.png "abs path")
+    ![alt text](img/notifyMe.ofInfo.png "Info notification")
 
     ```js
     // Display warning notification
     notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
     ```
-    ![alt text](img/notifyMe.ofInfo.png "rel path")
+    ![alt text](img/notifyMe.ofWarning.png "Warning notification")
     ```
     // Display an error notification
     notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
     ```
+    ![alt text](img/notifyMe.ofError.png "Error notification")
 ### Close Button
 
 The cross on top right corner of notification will dismiss the current notification.
