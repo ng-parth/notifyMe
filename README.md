@@ -42,7 +42,7 @@ npm install
 ```
 At this point the dependencies have been installed for this module.
 - Run the build by `gulp build`
-- Run the test by `gulp test`(TBD)
+- Run the test by `gulp test`
 - Check the docs by running
 
 ### Accessing docs for notifyMe
@@ -65,25 +65,23 @@ gulp build
   - Link the JS file as  `<script src="motifyMe.js"></script>`
   - Inject `notifyMe` while creating your angular app as `angular.module('yourApp', ['notifyMe', 'otherDIs'])`. Now you can use the `notifyMe` service throughout your application by injecting the service in your controllers.
 
-3. use notifyMe apis to display notifications for info, warning or error
-	```js
-	// Display an info notification
-	notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
-	```
+3. Use notifyMe apis to display notifications for info, warning or error
+    ```js
+    // Display an info notification
+    notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
+    ```
+    ![alt text](img/notifyMe.ofInfo.png "Info notification")
 
-### Other Options
-
-```js
-// Display warning notification
-notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
-
-// Display an error notification
-notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
-
-// Clear all notification
-NotifyMe.clear()
-
-```
+    ```js
+    // Display warning notification
+    notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
+    ```
+    ![alt text](img/notifyMe.ofWarning.png "Warning notification")
+    ```
+    // Display an error notification
+    notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
+    ```
+    ![alt text](img/notifyMe.ofError.png "Error notification")
 ### Close Button
 
 The cross on top right corner of notification will dismiss the current notification.
@@ -92,4 +90,6 @@ This is available in all types of notifications. Customise using `closeable` par
 ### Auto-dismiss/Timeouts
 At present, only `info` notification are dismissed automatically after 90000ms.
 This can be customised by overriding the timeout parameter in config file.
-This can also be customised using `timeout` and `autoDismiss` params in options while triggering the notifications.'
+This can also be customised using `timeout` and `autoDismiss` params in options while triggering the notifications.
+INFO and ERROR notification can also be made autodismissable by setting `autoDismiss` property to `true` in options while creating notification.
+   *Note:* Setting `timeout` to 0 with `autoDismiss` to `true` will dismiss the notification automatically.
