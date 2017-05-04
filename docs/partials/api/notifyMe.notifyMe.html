@@ -17,6 +17,14 @@ else it will clear all notifications.</p>
 </div></div>
 </div>
 </li>
+<li><h3 id="methods_getactivenotifs">getActiveNotifs()</h3>
+<div class="getactivenotifs"><div class="notifyme-notifyme-getactivenotifs-page"><p>Get count of currently active notifications.</p>
+</div><h5 id="methods_getactivenotifs_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-integer">integer</a></td><td><div class="notifyme-notifyme-getactivenotifs-page"><p>notifCount Return no active notifications</p>
+</div></td></tr></table><h4 id="methods_getactivenotifs_example">Example</h4>
+<div class="example"><div class="notifyme-notifyme-getactivenotifs-page"><p>notifyMe.getActiveNotifs();</p>
+</div></div>
+</div>
+</li>
 <li><h3 id="methods_oferror">ofError(msg, title, options)</h3>
 <div class="oferror"><div class="notifyme-notifyme-oferror-page"><p>Method to create ERROR notification.</p>
 </div><h5 id="methods_oferror_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>msg</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="notifyme-notifyme-oferror-page"><p>Message to be shown in notification</p>
@@ -27,7 +35,16 @@ else it will clear all notifications.</p>
 <li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
 <li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
 </ul>
-</div></td></tr></tbody></table><h4 id="methods_oferror_example">Example</h4>
+</div></td></tr></tbody></table><h5 id="methods_oferror_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-notificationobject">NotificationObject</a></td><td><div class="notifyme-notifyme-oferror-page"><p>notification Notification object containing following properties</p>
+<ul>
+<li><code>type</code> : Type of notification</li>
+<li><code>message</code> : Notification message</li>
+<li><code>title</code> : Notification title</li>
+<li><code>close</code> : Close function to dismiss the notification</li>
+<li><code>options</code> : Notification options</li>
+<li><code>notifId</code> : Unique id for this notification.</li>
+</ul>
+</div></td></tr></table><h4 id="methods_oferror_example">Example</h4>
 <div class="example"><div class="notifyme-notifyme-oferror-page"><p>notifyMe.ofError(message, title, options);</p>
 </div></div>
 </div>
@@ -42,7 +59,16 @@ else it will clear all notifications.</p>
 <li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
 <li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
 </ul>
-</div></td></tr></tbody></table><h4 id="methods_ofinfo_example">Example</h4>
+</div></td></tr></tbody></table><h5 id="methods_ofinfo_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-notificationobject">NotificationObject</a></td><td><div class="notifyme-notifyme-ofinfo-page"><p>notification Notification object containing following properties</p>
+<ul>
+<li><code>type</code> : Type of notification</li>
+<li><code>message</code> : Notification message</li>
+<li><code>title</code> : Notification title</li>
+<li><code>close</code> : Close function to dismiss the notification</li>
+<li><code>options</code> : Notification options</li>
+<li><code>notifId</code> : Unique id for this notification.</li>
+</ul>
+</div></td></tr></table><h4 id="methods_ofinfo_example">Example</h4>
 <div class="example"><div class="notifyme-notifyme-ofinfo-page"><p>notifyMe.ofInfo(message, title, options);</p>
 </div></div>
 </div>
@@ -57,7 +83,16 @@ else it will clear all notifications.</p>
 <li><code>closeable</code>: Option to make notification closeable: Defaults to true.</li>
 <li><code>timeout</code>: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.</li>
 </ul>
-</div></td></tr></tbody></table><h4 id="methods_ofwarning_example">Example</h4>
+</div></td></tr></tbody></table><h5 id="methods_ofwarning_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-notificationobject">NotificationObject</a></td><td><div class="notifyme-notifyme-ofwarning-page"><p>notification Notification object containing following properties</p>
+<ul>
+<li><code>type</code> : Type of notification</li>
+<li><code>message</code> : Notification message</li>
+<li><code>title</code> : Notification title</li>
+<li><code>close</code> : Close function to dismiss the notification</li>
+<li><code>options</code> : Notification options</li>
+<li><code>notifId</code> : Unique id for this notification.</li>
+</ul>
+</div></td></tr></table><h4 id="methods_ofwarning_example">Example</h4>
 <div class="example"><div class="notifyme-notifyme-ofwarning-page"><p>notifyMe.ofWarning(message, title, options);</p>
 </div></div>
 </div>
