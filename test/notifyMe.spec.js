@@ -16,9 +16,22 @@ describe('notifyMe', function() {
     });
 
     it('There should be no notifyContainer initially if no notification is opened.', function() {
-        // console.log('Doc: ', _$document);
-        // var size = _$document.find('#notify-me-container').length;
-        expect(0).toBe(0);
+        var size = _$document.find('#notify-me-container').length;
+        var count = _notifyMeService.getActiveNotifs();
+        expect(size).toBe(0);
+        expect(count).toBe(0);
+    });
+
+    it('Verify one notification for each notification type.', function() {
+        var title = 'This is notif title';
+        var message = 'This is notif title';
+        expect(_$document.find('#notify-me-container').length).toBe(0); //Works properly
+
+        _notifyMeService.ofError(message, title);
+        expect(_$document.find('#notify-me-container').length).toBe(1); // Works properly
+
+        expect(_$document.find('.notif').length).toBe(1); //Fails
+
     });
 
 });

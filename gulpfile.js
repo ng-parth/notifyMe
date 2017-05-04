@@ -1,9 +1,9 @@
 var gulp         = require('gulp');
-var sass         = require('gulp-sass');
-var rename       = require('gulp-rename');
-var concat       = require('gulp-concat');
+// var sass         = require('gulp-sass');
+// var rename       = require('gulp-rename');
+// var concat       = require('gulp-concat');
 
-var autoPrefixer = require('gulp-autoprefixer');
+// var autoPrefixer = require('gulp-autoprefixer');
 
 
 gulp.task('scss', function() {
@@ -89,6 +89,8 @@ function startTest(singleRun) {
         new Server({
             configFile: __dirname + '/karma.conf.js',
             singleRun: singleRun
-        }, done).start();
+        }, function(exitResult) {
+            done(exitResult ? 'There are failing unit tests.' : undefined );
+        }).start();
     }
 }
