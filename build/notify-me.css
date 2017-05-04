@@ -1,4 +1,4 @@
-@media screen and (min-width: 640px) and (max-width: 640px) {
+@media screen and (min-width: 640px) {
   #notify-me-container {
     min-width: 300px;
     max-width: 50%; }

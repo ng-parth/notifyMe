@@ -42,16 +42,16 @@ angular.module('notifyMe')
 
 angular.module('notifyMe')
     .directive('notifyMe', [function() {
-        var notifyMeTemplate = `
-        <div class="all-notifs"
-             id="{{notif.notifId}}"
-             ng-repeat="notif in notifications track by $index">
-             <div class="notif" ng-class="notif.type">
-                <div class="title" ng-bind="notif.title" ng-if="notif.title"></div>
-                <div class="message"ng-bind="notif.message" ng-if="notif.message"></div>
-                <div ng-if="notif.closeable" class="close" ng-click="notif.close(notif)">&times;</div>
-             </div> 
-        </div>`;
+        var notifyMeTemplate = '' +
+        '<div class="all-notifs"' +
+             'id="{{notif.notifId}}"' +
+             'ng-repeat="notif in notifications track by $index">' +
+             '<div class="notif" ng-class="notif.type">' +
+                '<div class="title" ng-bind="notif.title" ng-if="notif.title"></div>' +
+                '<div class="message"ng-bind="notif.message" ng-if="notif.message"></div>' +
+                '<div ng-if="notif.closeable" class="close" ng-click="notif.close(notif)">&times;</div>' +
+             '</div>' +
+        '</div>';
 
 
         return {
@@ -95,6 +95,15 @@ angular.module('notifyMe')
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
                  *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *
+                 *  @returns {NotificationObject} notification Notification object containing following properties
+                 *
+                 *  - `type` : Type of notification
+                 *  - `message` : Notification message
+                 *  - `title` : Notification title
+                 *  - `close` : Close function to dismiss the notification
+                 *  - `options` : Notification options
+                 *  - `notifId` : Unique id for this notification.
                  */
 
                 this.ofError = _error;
@@ -115,6 +124,15 @@ angular.module('notifyMe')
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
                  *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *
+                 * @returns {NotificationObject} notification Notification object containing following properties
+                 *
+                 *  - `type` : Type of notification
+                 *  - `message` : Notification message
+                 *  - `title` : Notification title
+                 *  - `close` : Close function to dismiss the notification
+                 *  - `options` : Notification options
+                 *  - `notifId` : Unique id for this notification.
                  */
 
                 this.ofInfo = _info;
@@ -135,6 +153,15 @@ angular.module('notifyMe')
                  *  - `autoDismiss`: Option to clear notification automatically after given timeout. By default true for info notification, false for other notification.
                  *  - `closeable`: Option to make notification closeable: Defaults to true.
                  *  - `timeout`: Timer in ms to make notifications dismiss. Defaults to 90000ms. 0ms will close the notification instantenously.
+                 *
+                 *  @returns {NotificationObject} notification Notification object containing following properties
+                 *
+                 *  - `type` : Type of notification
+                 *  - `message` : Notification message
+                 *  - `title` : Notification title
+                 *  - `close` : Close function to dismiss the notification
+                 *  - `options` : Notification options
+                 *  - `notifId` : Unique id for this notification.
                  */
 
                 this.ofWarning = _warning;
@@ -155,6 +182,21 @@ angular.module('notifyMe')
 
                 this.clear = _clear;
 
+                /**
+                 * @ngdoc
+                 * @name notifyMe.notifyMe#getActiveNotifs
+                 * @methodOf notifyMe.notifyMe
+                 *
+                 * @description
+                 * Get count of currently active notifications.
+                 * @example
+                 * notifyMe.getActiveNotifs();
+                 * @returns {integer} notifCount Return no active notifications
+                 *
+                 */
+                this.getActiveNotifs = function() {
+                    return notifications.length;
+                };
 
                 function Notification(type, msg, title, options) {
                     this.type = type;
@@ -162,19 +204,20 @@ angular.module('notifyMe')
                     this.title = title;
                     this.close = _clear.bind(this, this);
                     this.options = options;
+                    this.notifId = type + index;
                 }
 
                 function _error(msg, title, options) {
                     var notif = new Notification('error', msg, title, options);
-                    _makeNotification(notif);
+                    return _makeNotification(notif);
                 }
                 function _info(msg, title, options) {
                     var notif = new Notification('info', msg, title, options);
-                    _makeNotification(notif);
+                    return _makeNotification(notif);
                 }
                 function _warning(msg, title, options) {
                     var notif = new Notification('warning', msg, title, options);
-                    _makeNotification(notif);
+                    return _makeNotification(notif);
                 }
                 function _clear(notif) {
                     if (!notif) {
@@ -184,6 +227,8 @@ angular.module('notifyMe')
                             }
                         }
                         notifications.splice(0, notifications.length);
+                        container.remove();
+                        container = null;
                         return;
                     }
                     var notifIdx = notifications.indexOf(notif);
@@ -191,6 +236,10 @@ angular.module('notifyMe')
                         $timeout.cancel(notif.dismissPromise);
                     }
                     notifications.splice(notifIdx, 1);
+                    if (!notifications.length) {
+                        container.remove();
+                        container = null;
+                    }
                 }
                 function _getOptions() {
                     return angular.extend({}, notifyMeConfig);
@@ -208,12 +257,12 @@ angular.module('notifyMe')
                     var optionsOverride = angular.extend(_getOptions(), _cleanupOptions(notif.options));
                     _setNotifOptions(notif, optionsOverride);
 
-                    notif.notifId = notif.type + index;
-                    if (notif.autoDismiss) {
+                    if (notif.autoDismiss && notif.timeout) {
                         notif.dismissPromise = $timeout(notif.close, notif.timeout);
                     }
                     notifications.push(notif);
                     index++;
+                    return notif;
                 }
 
                 function _createContainer() {
