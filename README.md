@@ -65,25 +65,22 @@ gulp build
   - Link the JS file as  `<script src="motifyMe.js"></script>`
   - Inject `notifyMe` while creating your angular app as `angular.module('yourApp', ['notifyMe', 'otherDIs'])`. Now you can use the `notifyMe` service throughout your application by injecting the service in your controllers.
 
-3. use notifyMe apis to display notifications for info, warning or error
-	```js
-	// Display an info notification
-	notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
-	```
+3. Use notifyMe apis to display notifications for info, warning or error
+    ```js
+    // Display an info notification
+    notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
+    ```
+    ![alt text](https://github.com/ng-parth/notifyMe/raw/screenShot/img/notifyMe.ofInfo.png "abs path")
 
-### Other Options
-
-```js
-// Display warning notification
-notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
-
-// Display an error notification
-notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
-
-// Clear all notification
-NotifyMe.clear()
-
-```
+    ```js
+    // Display warning notification
+    notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
+    ```
+    ![alt text](img/notifyMe.ofInfo.png "rel path")
+    ```
+    // Display an error notification
+    notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
+    ```
 ### Close Button
 
 The cross on top right corner of notification will dismiss the current notification.
