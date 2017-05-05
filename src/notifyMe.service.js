@@ -156,7 +156,7 @@ angular.module('notifyMe')
                     return _makeNotification(notif);
                 }
                 function _clear(notif) {
-                    if (!notif) {
+                    if (!notif && notifications.length) {
                         for (var i = 0; i < notifications.length; i++ ) {
                             if (angular.isDefined(notifications[0].dismissPromise)) {
                                 $timeout.cancel(notifications[0].dismissPromise)
@@ -172,7 +172,7 @@ angular.module('notifyMe')
                         $timeout.cancel(notif.dismissPromise);
                     }
                     notifications.splice(notifIdx, 1);
-                    if (!notifications.length) {
+                    if (!notifications.length && container != null) {
                         container.remove();
                         container = null;
                     }

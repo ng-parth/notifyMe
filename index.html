@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="notifyMe" ng-controller="demoCtrl as vm">
+<head>
+    <meta charset="UTF-8">
+    <title>Notify Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <link rel="stylesheet" href="build/notify-me.css">
+    <style type="text/css">
+        .translucent-form-overlay {
+            max-width: 500px;
+            width: 100%;
+            background-color: rgba(54, 54, 54, 0.4);
+            padding: 20px;
+            color: #fff;
+        }
+        .translucent-form-overlay input{
+            color: #0a0a0a;
+        }
+        .translucent-form-overlay input::placeholder {
+            color: #8a8a8a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="large-12 large-text-center columns">
+                <div class="panel">
+                    <h1>Welcome to notifyMe demo!</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="translucent-form-overlay">
+                <form name="demoForm">
+                    <h3>Try different notifications</h3>
+                    <div class="row columns">
+                        <label>Title
+                            <input type="text" ng-model="vm.notif.title" placeholder="Title" required>
+                        </label>
+                    </div>
+                    <div class="row columns">
+                        <label>Message
+                            <input type="text" ng-model="vm.notif.message" placeholder="Message" required>
+                        </label>
+                    </div>
+                    <div class="row columns">
+                        <label>Do you want to set options?
+                            <input type="checkbox" ng-model="vm.notif.options.setOpts" ng-change="vm.setOptions()">
+                        </label>
+                    </div>
+                    <div class="row columns" ng-show="vm.notif.options.setOpts">
+                        <div class="row columns">
+                            <label>Auto dismiss?
+                                <input type="checkbox" ng-model="vm.notif.options.autoDismiss">
+                            </label>
+                        </div>
+                        <div class="row columns" ng-if="vm.notif.options.autoDismiss">
+                            <label>Auto dismiss timer
+                                <input type="number" min="0" max="100000" ng-model="vm.notif.options.timeout">
+                            </label>
+                        </div>
+                        <div class="row columns">
+                            <label>Closeable?
+                                <input type="checkbox" ng-model="vm.notif.options.closeable">
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="primary button" ng-click="vm.showInfo()" ng-disabled="demoForm.$invalid">
+                        Info
+                    </button>
+                    <button type="button" class="primary button" ng-click="vm.showError()" ng-disabled="demoForm.$invalid">
+                        Error
+                    </button>
+                    <button type="button" class="primary button" ng-click="vm.showWarning()" ng-disabled="demoForm.$invalid">
+                        Warning
+                    </button>
+                    <button type="button" class="secondary button" ng-click="vm.clearAll()">
+                        Clear all
+                    </button>
+                    <pre>
+{{vm.notif | json}}
+            </pre>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.min.js"></script>
+    <script src="build/notifyMe.js"></script>
+
+    <script type="text/javascript">
+        angular.module('notifyMe')
+        .controller('demoCtrl', ['notifyMe', function(notifyMe) {
+            this._notifyMe = notifyMe;
+            this.notif = {
+                message: 'This is the start of a beautiful journey.',
+                title: 'Welcome friends!',
+                options: {}
+            };
+
+            this.showInfo = function() {
+                this._notifyMe.ofInfo(this.notif.message, this.notif.title, this.notif.options);
+                this.setOptions();
+            };
+            this.showError = function() {
+                this._notifyMe.ofError(this.notif.message, this.notif.title, this.notif.options);
+                this.setOptions();
+            };
+            this.showWarning = function() {
+                this._notifyMe.ofWarning(this.notif.message, this.notif.title, this.notif.options);
+                this.setOptions();
+            };
+            this.clearAll = function() {
+                this._notifyMe.clear();
+                this.setOptions();
+            };
+            this.setOptions = function() {
+                if (this.notif.options.setOpts) {
+                    this.notif.options = {
+                        closeable: !!Math.round(Math.random()),
+                        timeout: Math.round(Math.random() * 10000),
+                        autoDismiss: !!Math.round(Math.random()),
+                        setOpts: true
+                    }
+                } else {
+                    this.notif.options = {
+                        setOpts: false
+                    };
+                }
+            };
+            this.setOptions();
+        }])
+    </script>
+</body>
+</html>
