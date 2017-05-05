@@ -3,8 +3,89 @@
 **notifyMe** is a angular 1.x module which can be used to show notification messages within a SPA. The notifications will be used to display information which give the user a feedback, but do not disturb them at the current work.
 The notification will appear on top right side of the screen.
 
+## Demo
+You can check the demo at [https://ng-parth.github.io/notifyMe/](https://ng-parth.github.io/notifyMe/)
 
-## APIs to consume:
+## Installation
+
+Use bower to add this package:
+```
+$ bower install notify-me --save
+```
+## Usage
+notify-me is very simple to use. It comes with three types of notification messages:
+```js
+// Display an info notification
+notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
+```
+![alt text](img/notifyMe.ofInfo.png "Info notification")
+```js
+// Display warning notification
+notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning');
+```
+![alt text](img/notifyMe.ofWarning.png "Warning notification")
+```js
+// Display an error notification
+notifyMe.ofError('Array index out of bound.', 'Erroneous code!');
+```
+![alt text](img/notifyMe.ofError.png "Error notification")
+
+## Generate and access docs for notifyMe
+Support for documentation is added using [ngDocs (built on Dgeni)](https://github.com/angular/angular.js/wiki/Writing-AngularJS-Documentation). So you can follow the comment style given there and generate the documentation.
+  The documantation is also available at [https://ng-parth.github.io/notifyMe/docs](https://ng-parth.github.io/notifyMe/docs)
+
+Altenatively, to generate the docs:
+```
+npm install -g gulp
+npm install
+gulp buildDocs
+gulp runDocs
+```
+and then open http://localhost:8083 in your browser to access the notifyMe docs.
+
+## Running Tests
+To execute all the test, use:
+```
+gulp test
+```
+
+## Customization notifications
+If you want to customise notification, you can do it by modifying `notifyMeConfig` in config of your angular app:
+
+```javascript
+app.config(function(notifyMeConfig) {
+  angular.extend(notifyMeConfig, {
+        timeout: 90000,
+        maxNotif: 5,
+        containerId: 'notify-me-container',
+        type: {
+            info: {
+                closeable: true,
+                autoDismiss: true
+            },
+            error: {
+                closeable: true,
+                autoDismiss: false
+            },
+            warning: {
+                closeable: true,
+                autoDismiss: false
+            }
+        }
+  });
+});
+```
+
+You can override the above defaults with your values.
+
+* **timeout** Delay in ms after which the notification auto-dismisses.
+* **maxNotif**: Maximum number of notification that can be opened at once.
+* **containerId**: The id of the notification container which will be appended to body to show notification.
+* **type.closeable**: This property set the weather the notification of this particular type will be closeable or not.
+* **type.autoDismiss**: This property set the weather the notification of this particular type will be auto-dismissed or not.
+
+
+## APIs:
 Following are the APIs which you can use in your project after injecting this module in your angular application.
 
 **Notification class**
@@ -39,56 +120,6 @@ returns `notificationObj`
 `notifyMe.clear([notificationObj(optional)]);`
 
 
-### Building notifyMe
-
-To build notifyMe module, you will need [node](http://nodejs.org) installed.
-
-```
-npm install -g gulp
-npm install
-```
-At this point the dependencies have been installed for this module.
-- Run the build by `gulp build`
-- Run the test by `gulp test`
-- Check the docs by running
-
-### Accessing docs for notifyMe
-Run
-```
-gulp buildDocs
-gulp runDocs
-```
-and then open http://localhost:8083 in your browser to access the notifyMe docs generated using ngDocs.
-
-### Follow 3 Easy Steps to use this module.
-
-1. Build the module to generate 2 files in `build` folder named `notify-me.css` and `notifyMe.js`..
-```
-gulp build
-```
-
-2. Include these 2 files in your project after including jquery, angular and angular-animate libraries.
-  - Link the CSS file as  `<link href="notify-me.css" rel="stylesheet"/>`
-  - Link the JS file as  `<script src="motifyMe.js"></script>`
-  - Inject `notifyMe` while creating your angular app as `angular.module('yourApp', ['notifyMe', 'otherDIs'])`. Now you can use the `notifyMe` service throughout your application by injecting the service in your controllers.
-
-3. Use notifyMe apis to display notifications for info, warning or error
-    ```js
-    // Display an info notification
-    notifyMe.ofInfo('Hello world! This is a info notification message.', 'Info notification title');
-    ```
-    ![alt text](img/notifyMe.ofInfo.png "Info notification")
-
-    ```js
-    // Display warning notification
-    notifyMe.ofWarning('Warning: Cigarette smoking is injurious to health.', 'Hazardous warning')
-    ```
-    ![alt text](img/notifyMe.ofWarning.png "Warning notification")
-    ```
-    // Display an error notification
-    notifyMe.ofError('Array index out of bound.', 'Erroneous code!')
-    ```
-    ![alt text](img/notifyMe.ofError.png "Error notification")
 ### Close Button
 
 The cross on top right corner of notification will dismiss the current notification.
